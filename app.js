@@ -7,16 +7,20 @@ const
     topSeller: 'suicide-vest'
   }; //to be used with nunjucks
 
-nunjucks.configure('views');
+nunjucks.configure('views', {noCache: true});
 nunjucks.render('index.html', locals, function(err, output){
   if(err) return console.log(err);
   console.log(output);
 });
 
+//app.set('views', __dirname + '/views'); //not necessary for nunjucks? So far it seems so
+app.set('view engine', 'html');
+app.engine('html', nunjucks.render);
+
 app.use(morgan('dev'));
 
 app.get('/', function(req, res){
-  res.send('you got the root route');
+  res.render('index', locals);
 });
 
 app.get('/news', function(req, res, next){
