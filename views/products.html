@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ACME Products</title>
+  <link rel="stylesheet" href="/vendor/bootstrap/dist/css/bootstrap.css">
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <a href="/">Home</a>
+    </nav>
+
+    <h1>Products</h1>
+    <div class="well">
+      <form action="/products" method="POST">
+        <div class="form-group">
+          <input name="name" class="form-control" placeholder="name">
+        </div>
+        <div class="form-group">
+          <input name="rating" class="form-control" placeholder="rating">
+        </div>
+        <div class="form-group">
+          <button class="btn btn-primary">Submit</button>
+        </div>
+      </form>
+    </div>
+    <ul class="list-group"> 
+      {% for product in products %}
+        <li class="list-group-item">     
+          <a href="/products/{{product.id}}">{{product.name}}</a>
+          <span class="badge">{{ product.rating }}</span>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</body>
+</html>

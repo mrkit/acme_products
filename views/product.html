@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{product.name}}</title>
+  <link rel="stylesheet" href="/vendor/bootstrap/dist/css/bootstrap.css">
+  <style>
+    ul {
+      list-style-type: none;
+      margin-left: -35px;
+      margin-top: 10px;
+      }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/products/">All Products</a></li>
+      </ul>
+    </nav>
+
+    <h1>{{ product.name }}</h1>
+    <div class="well">
+      <h3><strong>Rating:</strong> <em>{{product.rating}}</em></h3>
+    </div>
+    
+    <form action="/products/{{product.id}}?_method=DELETE" method="POST">
+      <button class="btn btn-danger">Delete</button>
+    </form>
+    
+  </div>
+</body>
+</html>
