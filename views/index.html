@@ -4,12 +4,15 @@
   <meta charset="UTF-8">
   <title>ACME</title>
   <link rel="stylesheet" href="/vendor/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="/public/stylesheets/lea.css">
 </head>
 <body>
-  <h1>ACME Products</h1>
-  <div class="well">
-    <p>Welcome to ACME Products! Our top selling product is {{ topSeller }}</p>
-    <p><a href="/products">See all of our products!</a></p>
+  <div class="container">
+    <h1>ACME Products</h1>
+    <div class="well">
+      <p>Welcome to ACME Products! Our top selling product is <a href='/products/{{ topRated.id}}'>{{ topRated.name }}</a></p>
+      <p><a href="/products">See all of our products!</a></p>
+    </div>
   </div>
 </body>
 </html>
